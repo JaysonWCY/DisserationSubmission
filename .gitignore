@@ -12,3 +12,5 @@ Llama8B/*
 
 # But keep the folder itself
 !Llama8B/.gitkeep
+
+!Llama8B/LlamaClass.py
