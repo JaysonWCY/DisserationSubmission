@@ -1,0 +1,14 @@
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+
+# Ignore environment folders
+venv/
+.env/
+
+
+# Ignore everything inside the folder
+Llama8B/*
+
+# But keep the folder itself
+!Llama8B/.gitkeep

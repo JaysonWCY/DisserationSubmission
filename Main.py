@@ -1,6 +1,6 @@
-from Initialiser import *
-from Settings import *
-
+from LLMRunner.Initialiser import *
+from LLMRunner.Settings import *
+from Llama8B.LlamaClass import *
 
 def RunProgram():
     validModelStartID = ValidateModelID(ModelIDStartRange, "ModelIDStartRange")
@@ -13,7 +13,13 @@ def RunProgram():
     
     ModelList = GenerateModelList(ModelIDStartRange, ModelIDEndRange)
     print(ModelList)
+    
+    llama = LlamaModel()
 
+    # Run your prompt
+    prompt = "Explain stock volatility in simple terms."
+    output = llama.generate_text(prompt)
+    print(output)
 
 
 RunProgram()
