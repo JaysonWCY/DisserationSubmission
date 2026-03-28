@@ -10,7 +10,10 @@ venv/
 # Ignore everything inside the folder
 Llama8B/*
 
-# But keep the folder itself
-!Llama8B/.gitkeep
+# Ignore everything inside the folder
+Llama318BInstruct/*
 
-!Llama8B/LlamaClass.py
+# But keep the folder itself
+!Llama318BInstruct/.gitkeep
+
+!Llama318BInstruct/LlamaClass.py

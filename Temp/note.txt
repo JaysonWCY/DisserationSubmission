@@ -9,3 +9,9 @@ ATR Average True Range
 High Low Close Pivot Points
 
 Uses a time period of 5 for the technical indicators as it will result in 1 trading week of null values at the cost of accuracy
+
+All data are saved in txt files for better clarity of the steps taken
+
+REMEBER TO NEVEDR SPEAK ABOUT PREDICTIONA RCHITECTURE
+
+Using the same LLMSummary reduces some of the randomness that an llm can perform but since sampling is off it will always be consistent anyway. Could be tested but not enough computational power aaand would result more in statistical testing

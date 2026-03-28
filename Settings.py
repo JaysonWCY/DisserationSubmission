@@ -9,8 +9,8 @@ MODEL ID RANGE
 
 '''
 
-'Minimum 00000'
-ModelIDStartRange = "00000"
+'Minimum 0000'
+ModelIDStartRange = "0000"
 
-'Maximum 21111'
-ModelIDEndRange = "21111"
+'Maximum 2111'
+ModelIDEndRange = "2111"

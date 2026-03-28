@@ -18,18 +18,17 @@ def ValidateModelID(ModelID, StartOrEnd="ModelID"):
     digits = [int(d) for d in ModelID]
 
     # Check length
-    if len(digits) != 5:
+    if len(digits) != 4:
         print(f"{StartOrEnd} has the wrong length (should be 5 digits)")
         print("Please read SettingsManual.py")
         return False
 
     # Allowed values per position
-    max_values = [2, 1, 1, 1, 1]
+    max_values = [2, 1, 1, 1]
     param_names = [
         "Data Representation",
         "Preprocess Data",
         "Technical Indicator",
-        "Prediction Architecture",
         "Prediction Duration"
     ]
 
@@ -52,8 +51,7 @@ def GenerateModelList(ModelIDStart, ModelIDEnd):
         [0, 1, 2],  # 1. Data Representation
         [0, 1],     # 2. Preprocess Data
         [0, 1],     # 3. Technical Indicators
-        [0, 1],     # 4. Prediction Architecture
-        [0, 1]      # 5. Prediction Duration
+        [0, 1]      # 4. Prediction Duration
     ]
 
     start_digits = [int(d) for d in str(ModelIDStart)]

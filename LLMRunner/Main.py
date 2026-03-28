@@ -1,46 +1,79 @@
 import os
 import json
 
-def GenerateTrendSummary():
 
-    file_path = os.path.join("DataSets", "BaseDataSet.txt")
-
-    with open(file_path, "r") as f:
-        data = json.load(f)
-
-    # Limit rows to avoid context overload
-    data = data[-30:]
+def GenerateTrendSummary(data):
 
     lines = ["Date,Open,Close,High,Low,Volume"]
+    highs, lows, closes = [], [], []
+
     for row in data:
-        lines.append(
-            f"{row['datadate']},{row['OpenVal']},{row['CloseVal']},{row['HighVal']},{row['LowVal']},{row['quantity']}"
-        )
+        open_v = float(row['OpenVal'])
+        close_v = float(row['CloseVal'])
+        high_v = float(row['HighVal'])
+        low_v = float(row['LowVal'])
+        volume = row['quantity']
+
+        lines.append(f"{row['datadate']},{open_v},{close_v},{high_v},{low_v},{volume}")
+
+        highs.append(high_v)
+        lows.append(low_v)
+        closes.append(close_v)
 
     market_text = "\n".join(lines)
 
-    prompt = f"""
-Financial Market Analysis
+    key_high = max(highs) if highs else 0
+    key_low = min(lows) if lows else 0
+    avg_close = sum(closes) / len(closes) if closes else 0
 
-Dataset (Daily OHLC Data):
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are a financial market analyst.\n"
+                "Follow these rules:\n"
+                "- Do NOT write code\n"
+                "- Do NOT use markdown\n"
+                "- ONLY output the required fields\n"
+                "- Be concise and structured"
+            )
+        },
+        {
+            "role": "user",
+            "content": f"""
+Analyze the following dataset and provide a structured analysis.
+
+Dataset (OHLC data):
 {market_text}
 
+Key Prices:
+- Highest Price: {key_high}
+- Lowest Price: {key_low}
+- Average Closing Price: {avg_close:.2f}
+
 Instructions:
-Analyze the dataset and fill in the following fields using the data provided:
+- Identify the overall trend (bullish, bearish, sideways)
+- Assess volatility (low, moderate, high)
+- Highlight notable movements
+- Provide a short summary
 
-Trend:           # bullish, bearish, or sideways
-Volatility:      # low, moderate, high
-Notable Movements:  # any spikes, gaps, or unusual changes
-Summary:         # short paragraph summarizing the behaviour
+Output format (STRICT):
 
-Analysis:
+Key Prices: <text>
+Trend: <text>
+Volatility: <text>
+Notable Movements: <text>
+Summary: <text>
 """
+        }
+    ]
 
-    return prompt
+    return messages
+
 
 def GenerateForecastPrompt(market_data_list, indicators):
 
-    # Use last 30 days for context
+    # Use last 30 days
     recent_data = market_data_list[-30:]
 
     # Convert to table
@@ -49,12 +82,14 @@ def GenerateForecastPrompt(market_data_list, indicators):
         lines.append(
             f"{row.datadate},{row.OpenVal},{row.CloseVal},{row.HighVal},{row.LowVal},{row.quantity}"
         )
+
     market_text = "\n".join(lines)
 
-    # Extract latest indicator values
+    # Helper to get last valid value
     def get_last_valid(arr):
-        return [x for x in arr if x == x][-1]  # remove NaN
+        return [x for x in arr if x == x][-1]
 
+    # Extract indicators
     rsi = round(get_last_valid(indicators["RSI_14"]), 2)
     sma = round(get_last_valid(indicators["SMA_20"]), 2)
     ema = round(get_last_valid(indicators["EMA_20"]), 2)
@@ -63,7 +98,7 @@ def GenerateForecastPrompt(market_data_list, indicators):
     bb_upper = round(get_last_valid(indicators["BB_upper"]), 2)
     bb_lower = round(get_last_valid(indicators["BB_lower"]), 2)
 
-    # Convert indicators to signals
+    # Signals
     if rsi > 70:
         rsi_signal = "overbought"
     elif rsi < 30:
@@ -73,7 +108,22 @@ def GenerateForecastPrompt(market_data_list, indicators):
 
     macd_signal_text = "bullish" if macd > macd_signal else "bearish"
 
-    prompt = f"""
+    # Build structured messages (NEW FORMAT)
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are a financial market forecasting expert.\n"
+                "Follow these rules:\n"
+                "- Do NOT write code\n"
+                "- Do NOT use markdown\n"
+                "- ONLY output the required fields\n"
+                "- Be concise and structured"
+            )
+        },
+        {
+            "role": "user",
+            "content": f"""
 Financial Market Forecasting Task
 
 Recent Market Data (last 30 days):
@@ -96,8 +146,8 @@ Expected Price Range:
 Volatility:
 Key Drivers:
 Final Outlook:
-
-Forecast:
 """
+        }
+    ]
 
-    return prompt
+    return messages

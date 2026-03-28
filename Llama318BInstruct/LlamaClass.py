@@ -24,33 +24,37 @@ class LlamaModel:
         # Load model
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_path,
-            device_map=None,          # Disable auto split
+            device_map="auto",         
             dtype=torch.float16,
             local_files_only=True
         )
 
         # Move model to GPU (if available)
-        self.model.to(self.device)
         self.model.eval()
 
 
-    def generate_text(self, prompt, max_new_tokens=300):
+    def generate_text(self, prompt):
 
-        # Tokenize plain prompt and move to the correct device
+        # Tokenize the prompt
         inputs = self.tokenizer(
             prompt,
             return_tensors="pt"
-        ).to(self.device)
+        )
+
+        # Move inputs to device
+        inputs = {k: v.to(self.device) for k, v in inputs.items()}
 
         with torch.no_grad():
             outputs = self.model.generate(
                 **inputs,
-                max_new_tokens=max_new_tokens,
-                do_sample=True,
+                max_new_tokens=200,
+                do_sample=False,
                 temperature=0.3,
                 top_p=0.9,
-                repetition_penalty=1.1,
-                pad_token_id=self.tokenizer.eos_token_id
+                repetition_penalty=1.2,
+                no_repeat_ngram_size=3,
+                eos_token_id=self.tokenizer.eos_token_id,
+                pad_token_id=self.tokenizer.eos_token_id,
             )
 
         # Remove prompt from generated output
