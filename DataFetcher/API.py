@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import yfinance as yf
 
-from Classes import *
+from DataFetcher.Classes import *
 
 import yfinance as yf
 from datetime import date

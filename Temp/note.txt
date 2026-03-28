@@ -1,0 +1,11 @@
+Dataset was too small and invariable for outliers to have an impact, therefore removing outliers did not change any data
+
+Incorporating fundamental data for indices introduces aggregation challenges and time-lag effects, making it less suitable for short-term forecasting compared to technical indicators.
+
+Macroeconomic data tends to be monthly or quaterly which do not match the short time frame of this prediction
+
+Included additional indicators
+ATR Average True Range
+High Low Close Pivot Points
+
+Uses a time period of 5 for the technical indicators as it will result in 1 trading week of null values at the cost of accuracy

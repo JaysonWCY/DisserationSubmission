@@ -5,54 +5,39 @@ from itertools import product
 CHECK VALID MODEL ID
 """
 
-
-def ValidateModelID(ModelID, StartOrEnd):
-    ModelStart_digits = [int(d) for d in str(ModelID)]
-
-    if type(ModelID) != str:
-        print(StartOrEnd + " should be an string")
+def ValidateModelID(ModelID, StartOrEnd="ModelID"):
+    # Convert to string if integer
+    if isinstance(ModelID, int):
+        ModelID = str(ModelID)
+    elif not isinstance(ModelID, str):
+        print(f"{StartOrEnd} should be a string or integer")
         print("Please read SettingsManual.py")
         return False
 
-    if len(ModelStart_digits) != 7:
-        print(StartOrEnd + " has the wrong length")
+    # Convert to digits
+    digits = [int(d) for d in ModelID]
+
+    # Check length
+    if len(digits) != 5:
+        print(f"{StartOrEnd} has the wrong length (should be 5 digits)")
         print("Please read SettingsManual.py")
         return False
 
-    if ModelStart_digits[0] > 2:
-        print(StartOrEnd + " Data representation parameter value invalid")
-        print("Please read SettingsManual.py")
-        return False
+    # Allowed values per position
+    max_values = [2, 1, 1, 1, 1]
+    param_names = [
+        "Data Representation",
+        "Preprocess Data",
+        "Technical Indicator",
+        "Prediction Architecture",
+        "Prediction Duration"
+    ]
 
-    if ModelStart_digits[1] > 1:
-        print(StartOrEnd + " Preprocess data parameter value invalid")
-        print("Please read SettingsManual.py")
-        return False
-
-    if ModelStart_digits[2] > 1:
-        print(StartOrEnd + " Fundamental data parameter invalid")
-        print("Please read SettingsManual.py")
-        return False
-
-    if ModelStart_digits[3] > 1:
-        print(StartOrEnd + " Technical Indicator parameter invalid")
-        print("Please read SettingsManual.py")
-        return False
-
-    if ModelStart_digits[4] > 1:
-        print(StartOrEnd + " Macroeconomic data parameter value invalid")
-        print("Please read SettingsManual.py")
-        return False
-
-    if ModelStart_digits[5] > 1:
-        print(StartOrEnd + " Prediction Architecture parameter invalid")
-        print("Please read SettingsManual.py")
-        return False
-
-    if ModelStart_digits[6] > 1:
-        print(StartOrEnd + " Prediction Duration parameter invalid")
-        print("Please read SettingsManual.py")
-        return False
+    for i, (digit, max_val) in enumerate(zip(digits, max_values)):
+        if digit > max_val:
+            print(f"{StartOrEnd} {param_names[i]} parameter value invalid")
+            print("Please read SettingsManual.py")
+            return False
 
     return True
 
@@ -66,11 +51,9 @@ def GenerateModelList(ModelIDStart, ModelIDEnd):
     position_values = [
         [0, 1, 2],  # 1. Data Representation
         [0, 1],     # 2. Preprocess Data
-        [0, 1],     # 3. Fundamental Data
-        [0, 1],     # 4. Technical Indicators
-        [0, 1],     # 5. Macroeconomic Data
-        [0, 1],     # 6. Prediction Architecture
-        [0, 1]      # 7. Prediction Duration
+        [0, 1],     # 3. Technical Indicators
+        [0, 1],     # 4. Prediction Architecture
+        [0, 1]      # 5. Prediction Duration
     ]
 
     start_digits = [int(d) for d in str(ModelIDStart)]

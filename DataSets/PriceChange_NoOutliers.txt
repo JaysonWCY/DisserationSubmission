@@ -1,0 +1,97 @@
+[
+    {
+        "id": null,
+        "date": "2025-01-02",
+        "percentage_change": -0.587979562404114
+    },
+    {
+        "id": null,
+        "date": "2025-01-03",
+        "percentage_change": 0.8725136886629334
+    },
+    {
+        "id": null,
+        "date": "2025-01-06",
+        "percentage_change": -0.12419207209457107
+    },
+    {
+        "id": null,
+        "date": "2025-01-07",
+        "percentage_change": -1.4054118086431078
+    },
+    {
+        "id": null,
+        "date": "2025-01-08",
+        "percentage_change": 0.1284094085831413
+    },
+    {
+        "id": null,
+        "date": "2025-01-10",
+        "percentage_change": -1.0748097743619833
+    },
+    {
+        "id": null,
+        "date": "2025-01-13",
+        "percentage_change": 0.9373920382395015
+    },
+    {
+        "id": null,
+        "date": "2025-01-14",
+        "percentage_change": -0.2792133359056016
+    },
+    {
+        "id": null,
+        "date": "2025-01-15",
+        "percentage_change": 0.7569619981031713
+    },
+    {
+        "id": null,
+        "date": "2025-01-16",
+        "percentage_change": -0.4405053337408614
+    },
+    {
+        "id": null,
+        "date": "2025-01-17",
+        "percentage_change": 0.02102034771287459
+    },
+    {
+        "id": null,
+        "date": "2025-01-21",
+        "percentage_change": 0.5839610201188317
+    },
+    {
+        "id": null,
+        "date": "2025-01-22",
+        "percentage_change": 0.08188885035810213
+    },
+    {
+        "id": null,
+        "date": "2025-01-23",
+        "percentage_change": 0.6976284650092497
+    },
+    {
+        "id": null,
+        "date": "2025-01-24",
+        "percentage_change": -0.32982392719481196
+    },
+    {
+        "id": null,
+        "date": "2025-01-27",
+        "percentage_change": 0.7244003359129964
+    },
+    {
+        "id": null,
+        "date": "2025-01-28",
+        "percentage_change": 0.6757952838133601
+    },
+    {
+        "id": null,
+        "date": "2025-01-29",
+        "percentage_change": -0.3035828140352744
+    },
+    {
+        "id": null,
+        "date": "2025-01-30",
+        "percentage_change": 0.3374775337768045
+    }
+]
