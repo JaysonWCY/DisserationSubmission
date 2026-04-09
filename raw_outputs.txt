@@ -1,0 +1,158 @@
+MODEL: [0, 0, 0, 0]
+{"PredictedDailyClosingPrices":[{"day":31,"price":6134.19},{"day":32,"price"):6161.41},{"day" :33,"price" :6188.63},{"day ":34,"price " :6215.85},{"day ":"35","price":6243.07}],"PredictedPriceRange":{"min":6141.11,"max":6263.93},"Trend":"Neutral","Volatility":"Moderate","Confidence":"0.73"}
+==================================================
+MODEL: [0, 0, 0, 1]
+{"PredictedDailyClosingPrices":[{"day":11,"price":6134.8193359375},{"day":12,"price"):6161.4892578125},{"days":13,"price"6190.15966796875},{"day\":14,\"price\":6211.829833984375},{\"day\":15,\"price\":\"6245.49951171875\",\"day\":16,\"price\":"6282.869140625","day\":17,\"price\"\":6313.23974609375"},{"day\":18,\"price"\":6347.569091796875}],"PredictedPriceRange":{"min":5950.3095703125,"max":6357.539306640625},"Trend":"Neutral","Volatility":"Moderate","Confidence\":0.65}
+==================================================
+MODEL: [0, 0, 1, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6134.19},{"day":2,"price ":6161.31},{"day ":6188.43},{"day ":"6205.55"},{"day":6222.67}],"PredictedPriceRange":{"min":6141.11,"max":6213.33},"Trend":"Neutral","Volatility":"Moderate","Confidence" :0.73}
+==================================================
+MODEL: [0, 0, 1, 1]
+{"PredictedDailyClosingPrices":[{"day":11,"price":6134.19},{"day":12,"price ":6147.31},{"day":"13","price":6160.43},{"day":{"type":"integer"},"price":6173.55},{"day":-1,"price ":"6186.67"},{"day":null,"price "-6199.79},{"day":"","price":6212.91},{"day":["a"],"price":6226.03},{"day":[],"price":6239.15},{"day":[-1],"price ":"-6351.37"}],"PredictedPriceRange":{"min":5950.74,"max":6341.39},"Trend":"Neutral","Volatility":"Moderate","Confidence" :0}
+==================================================
+MODEL: [0, 1, 0, 0]
+{"PredictedDailyClosingPrices":[{"day":31,"price":6134.19},{"day":32,"price"):6161.41},{"day" :33,"price" :6188.63},{"day ":34,"price " :6215.85},{"day ":"35","price":6243.07}],"PredictedPriceRange":{"min":6141.11,"max":6263.93},"Trend":"Neutral","Volatility":"Moderate","Confidence":"0.73"}
+==================================================
+MODEL: [0, 1, 0, 1]
+{"PredictedDailyClosingPrices":[{"day":11,"price":6134.8193359375},{"day":12,"price"):6161.4892578125},{"days":13,"price"6190.15966796875},{"day\":14,\"price\":6211.829833984375},{\"day\":15,\"price\":\"6245.49951171875\",\"day\":16,\"price\":"6282.869140625","day\":17,\"price\"\":6313.23974609375"},{"day\":18,\"price"\":6347.569091796875}],"PredictedPriceRange":{"min":5950.3095703125,"max":6357.539306640625},"Trend":"Neutral","Volatility":"Moderate","Confidence\":0.65}
+==================================================
+MODEL: [0, 1, 1, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6134.19},{"day":2,"price ":6161.31},{"day ":6188.43},{"day ":"6205.55"},{"day":6222.67}],"PredictedPriceRange":{"min":6141.11,"max":6213.33},"Trend":"Neutral","Volatility":"Moderate","Confidence" :0.73}
+==================================================
+MODEL: [0, 1, 1, 1]
+{"PredictedDailyClosingPrices":[{"day":11,"price":6134.19},{"day":12,"price ":6147.31},{"day":"13","price":6160.43},{"day":{"type":"integer"},"price":6173.55},{"day":-1,"price ":"6186.67"},{"day":null,"price "-6199.79},{"day":"","price":6212.91},{"day":["a"],"price":6226.03},{"day":[],"price":6239.15},{"day":[-1],"price ":"-6351.37"}],"PredictedPriceRange":{"min":5950.74,"max":6341.39},"Trend":"Neutral","Volatility":"Moderate","Confidence" :0}
+==================================================
+MODEL: [1, 0, 0, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6057.511},{\"day\":2,\"price\":6091.111},{\"data\":{\"day\":3,\"price\":\"6104.718\",\"error\":\"Invalid number\"}],"PredictedPriceRange":{"min":6049.999,"max":6118.222},"Trend":"Bearish","Volatility":"High","Confidence" :0.75}
+==================================================
+MODEL: [1, 0, 0, 1]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6057.511},{\"day\":2,\"price\":6091.111},{\"data\":{\"day\":3,\"price\":\"6104.718\",\"error\":\"Invalid number\"}],"PredictedPriceRange":{"min":6049.999,"max":6118.222},"Trend":"Bearish","Volatility":"High","Confidence" :0.75}
+ 
+[
+  {"day" : 1, "price" :   6057. 51 },
+  { "day"  :  2,"price"  :" 6091.11 "},
+  {"data":{"day":3,"price":"6104"}}]
+==================================================
+MODEL: [1, 0, 1, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6083.111},{\"day\":2,\"price\":6094.419},{"day":3,\"price\",6105.727},{\"day\":4,\"price\":\"6117.035"},{\"day\":\"5\",\"price\":6128.343}],"PredictedPriceRange":{"min\":6069.819,\"max\":6146.867},"Trend":"Neutral","Volatility":"Moderate","Confidence\":0.58}
+==================================================
+MODEL: [1, 0, 1, 1]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6083.419},{"day":6101.111},{ "day":6120.011,"price":"6101"},{ "day" :6139.191, "price" : 6120}, { "day ":6159.631,"price ":"6140"}, {"day ":6181.341,"price ":"6160"},{"day":6204.321,"price ":6179}, {"d ay":6228.531,"price" :"6199"},{"day ":6254.891,"price " :6219 }, {"da y":6282.491,"price":"","6279"},"day":6301.331,"price":""}], "Predicte dP riceRange":{"min":6069.819,"ma x":6321.431},"Tr end":"Bearis h","V olatility":"Moderate ","Con fidence":0.623}
+==================================================
+MODEL: [1, 1, 0, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6057.511},{\"day\":2,\"price\":6091.111},{\"data\":{\"day\":3,\"price\":\"6104.718\",\"error\":\"Invalid number\"}],"PredictedPriceRange":{"min":6049.999,"max":6118.222},"Trend":"Bearish","Volatility":"High","Confidence" :0.75}
+==================================================
+MODEL: [1, 1, 0, 1]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6057.511},{\"day\":2,\"price\":6091.111},{\"data\":{\"day\":3,\"price\":\"6104.718\",\"error\":\"Invalid number\"}],"PredictedPriceRange":{"min":6049.999,"max":6118.222},"Trend":"Bearish","Volatility":"High","Confidence" :0.75}
+ 
+[
+  {"day" : 1, "price" :   6057. 51 },
+  { "day"  :  2,"price"  :" 6091.11 "},
+  {"data":{"day":3,"price":"6104"}}]
+==================================================
+MODEL: [1, 1, 1, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6083.111},{\"day\":2,\"price\":6094.419},{"day":3,\"price\",6105.727},{\"day\":4,\"price\":\"6117.035"},{\"day\":\"5\",\"price\":6128.343}],"PredictedPriceRange":{"min\":6069.819,\"max\":6146.867},"Trend":"Neutral","Volatility":"Moderate","Confidence\":0.58}
+==================================================
+MODEL: [1, 1, 1, 1]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6083.419},{"day":6101.111},{ "day":6120.011,"price":"6101"},{ "day" :6139.191, "price" : 6120}, { "day ":6159.631,"price ":"6140"}, {"day ":6181.341,"price ":"6160"},{"day":6204.321,"price ":6179}, {"d ay":6228.531,"price" :"6199"},{"day ":6254.891,"price " :6219 }, {"da y":6282.491,"price":"","6279"},"day":6301.331,"price":""}], "Predicte dP riceRange":{"min":6069.819,"ma x":6321.431},"Tr end":"Bearis h","V olatility":"Moderate ","Con fidence":0.623}
+==================================================
+MODEL: [2, 0, 0, 0]
+{
+  "_version": 7,
+  "predicted_daily_closing_prices": [
+      {"day" : 1,"price" :5968.23},
+      {"_value":6,"day" :"price" 5989.56},
+      { "day"   :3,"price"6009.89},
+      {_value":4, "day":"price"6030.22},
+      {'day':5,'price'6050.55}
+  ],
+"_values":null,
+"Trend":"bullish",
+"volatility":"moderate",
+"confidence":0.85,
+"predicted_price_range":{
+        "min" :5843.45,
+       "max" :6157.65
+     }
+}
+==================================================
+MODEL: [2, 0, 0, 1]
+{
+  "_version_": "v1",
+  "predicted_daily_closing_prices": [
+      {"day" : 1,"price" :5965.00},
+      {"days" :2, "price" :"5988.25"},
+      {"date" :3,"price":"6016.75"},
+      { "day"   :4,"price ":"6047.15"},
+      {'day' :5,'price':"6079.55"},
+      '{"day"' :6,'"price":"'6085.95"},
+      '{"day"':7,'"price"':'6104.45'},
+      {"dya":8,"pricce":"6125.05"},
+      "{"day":9,"priice":"6147.65"},
+      "{\"day\":10,\"price\":\"6171.25\"}"
+  ],
+"Trend": "bullish",
+"Volatility" : "Moderate",
+"confidence": 0.85,
+"Predicted Price range":{
+        "min" :5850.00,
+       "max" :6200.000
+}
+}
+==================================================
+MODEL: [2, 0, 1, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6089.15},{"day":2,"price ":6097.23},{"day\":3,\"price\":6105.31},{"day\":\"4\",\"price\":6113.39},{"day\" :5,\"price\":"6121.47}],"PredictedPriceRange":{"min":6079.11,"max":6123.83},"Trend":"Bullis","Volatility":"Moderate","Confidence" :0.75}
+==================================================
+MODEL: [2, 0, 1, 1]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6085.23},{"day":2,"price ":6099.15},{"day\":3,\"price\":6109.51},{"day\":\"4\",\"price\":6120.19},{"day\" :5,\"price\":"6140.11},{"day\":{\"6","price\":6151.29},{"day":{"7},"price\":6162.89},{"day"{8}","price":6174.91},{"day"\:"9"},"price\":6187.25},{"day\"\:10}\""price\":6200.01],"PredictedPriceRange":{"min":5983.99,"max":6211.02},"Trend":"Bullishtrend","Volatility":"Moderate","Confidence\":0.82}
+==================================================
+MODEL: [2, 1, 0, 0]
+{
+  "_version": 7,
+  "predicted_daily_closing_prices": [
+      {"day" : 1,"price" :5968.23},
+      {"_value":6,"day" :"price" 5989.56},
+      { "day"   :3,"price"6009.89},
+      {_value":4, "day":"price"6030.22},
+      {'day':5,'price'6050.55}
+  ],
+"_values":null,
+"Trend":"bullish",
+"volatility":"moderate",
+"confidence":0.85,
+"predicted_price_range":{
+        "min" :5843.45,
+       "max" :6157.65
+     }
+}
+==================================================
+MODEL: [2, 1, 0, 1]
+{
+  "_version_": "v1",
+  "predicted_daily_closing_prices": [
+      {"day" : 1,"price" :5965.00},
+      {"days" :2, "price" :"5988.25"},
+      {"date" :3,"price":"6016.75"},
+      { "day"   :4,"price ":"6047.15"},
+      {'day' :5,'price':"6079.55"},
+      '{"day"' :6,'"price":"'6085.95"},
+      '{"day"':7,'"price"':'6104.45'},
+      {"dya":8,"pricce":"6125.05"},
+      "{"day":9,"priice":"6147.65"},
+      "{\"day\":10,\"price\":\"6171.25\"}"
+  ],
+"Trend": "bullish",
+"Volatility" : "Moderate",
+"confidence": 0.85,
+"Predicted Price range":{
+        "min" :5850.00,
+       "max" :6200.000
+}
+}
+==================================================
+MODEL: [2, 1, 1, 0]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6089.15},{"day":2,"price ":6097.23},{"day\":3,\"price\":6105.31},{"day\":\"4\",\"price\":6113.39},{"day\" :5,\"price\":"6121.47}],"PredictedPriceRange":{"min":6079.11,"max":6123.83},"Trend":"Bullis","Volatility":"Moderate","Confidence" :0.75}
+==================================================
+MODEL: [2, 1, 1, 1]
+{"PredictedDailyClosingPrices":[{"day":1,"price":6085.23},{"day":2,"price ":6099.15},{"day\":3,\"price\":6109.51},{"day\":\"4\",\"price\":6120.19},{"day\" :5,\"price\":"6140.11},{"day\":{\"6","price\":6151.29},{"day":{"7},"price\":6162.89},{"day"{8}","price":6174.91},{"day"\:"9"},"price\":6187.25},{"day\"\:10}\""price\":6200.01],"PredictedPriceRange":{"min":5983.99,"max":6211.02},"Trend":"Bullishtrend","Volatility":"Moderate","Confidence\":0.82}
+==================================================
