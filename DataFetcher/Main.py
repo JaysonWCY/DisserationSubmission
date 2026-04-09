@@ -1,6 +1,7 @@
 from DataFetcher.API import *
 from DataFetcher.Converters import *
 from LLMRunner.Main import *
+from DataFetcher.Classes import *
 
 import os
 import json
@@ -10,15 +11,17 @@ def GetDataset(StartDate,EndDate, StockCode, llama):
     #=========================
     # GET DATA
     #=========================
-    StockData = GetStockData(StockCode, StartDate, EndDate) 
+    MarketDataObject = GetStockData(StockCode, StartDate, EndDate) 
 
     #=========================
     # CONVERT DATA TO LIST & SAVE
     #=========================
-    # Convert list of MarketData objects
-    BaseDataSet = [marketdata_to_dict(md) for md in StockData]
-    # Convert list of PriceChange objects
-    PriceChange = [pricechange_to_dict(md) for md in StockData]
+    # Convert list of MarketData objects to dict
+    DataSetDict = [marketdata_to_dict(md) for md in MarketDataObject]
+    # Convert list of MarketData objects to PriceChangeObjects
+    PriceChangeObject = [PriceChange(md) for md in MarketDataObject]
+    # Convert list of PriceChangeObjects objects to dict
+    PriceChangeDict = [pricechange_to_dict(md) for md in PriceChangeObject]
 
     # Create folder if it doesn't exist
     folder_path = "DataSets"   
@@ -27,19 +30,19 @@ def GetDataset(StartDate,EndDate, StockCode, llama):
     # Save Price Data
     file_path = os.path.join(folder_path, "BaseDataSet.txt")
     with open(file_path, "w") as f:
-        json.dump(BaseDataSet, f, indent=4)
+        json.dump(DataSetDict, f, indent=4)
 
     # Save Percentage Data
     file_path = os.path.join(folder_path, "PriceChange.txt")
     with open(file_path, "w") as f:
-        json.dump(PriceChange, f, indent=4)
+        json.dump(PriceChangeDict, f, indent=4)
 
     #=========================
     # DO INDICATOR CALCULATIONS & SAVE
     #=========================
 
     # Calculate indicators
-    Indicators = calculate_indicators(StockData)
+    Indicators = calculate_indicators(MarketDataObject)
     
     # Save indicators
     file_path = os.path.join(folder_path, "Indicators.txt")
@@ -51,11 +54,15 @@ def GetDataset(StartDate,EndDate, StockCode, llama):
     # REMOVE OUTLIERS
     #=========================
 
-    clean_price_data = remove_price_outliers(StockData)
-    clean_pricechange_data = remove_pricechange_outliers(StockData)
+    # Remove outliers from MarketData Object
+    NoOutliers_DatasetObject = remove_price_outliers(MarketDataObject)
+    # Change MarketData object to PriceChange Object and Remove Outliers
+    NoOutliers_PriceChangeObject = remove_pricechange_outliers(MarketDataObject)
 
-    BaseDataSet_NoOutliers = [marketdata_to_dict(md) for md in clean_price_data]
-    PriceChange_NoOutliers = [pricechange_to_dict(md) for md in clean_pricechange_data]
+
+
+    BaseDataSet_NoOutliers = [marketdata_to_dict(md) for md in NoOutliers_DatasetObject]
+    PriceChange_NoOutliers = [pricechange_to_dict(md) for md in NoOutliers_PriceChangeObject]
 
     # Save Clean raw prices
     file_path = os.path.join(folder_path, "BaseDataSet_NoOutliers.txt")
@@ -73,19 +80,19 @@ def GetDataset(StartDate,EndDate, StockCode, llama):
     #=========================
 
     #Base Dataset
-    messages = GenerateTrendSummary(BaseDataSet)
-    prompt = llama.tokenizer.apply_chat_template(messages, tokenize=False)
+    messages = GenerateTrendSummary(MarketDataObject)
+    prompt = llama.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     LLMSummary = llama.generate_text(prompt)
     file_path = os.path.join(folder_path, "LLMSummary.txt")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(LLMSummary)
 
     #Cleaned Dataset
-    messages = GenerateTrendSummary(BaseDataSet_NoOutliers)
-    prompt = llama.tokenizer.apply_chat_template(messages, tokenize=False)
+    messages = GenerateTrendSummary(NoOutliers_DatasetObject)
+    prompt = llama.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     LLMSummary_NoOutliers = llama.generate_text(prompt)
     file_path = os.path.join(folder_path, "LLMSummary_NoOutliers.txt")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(LLMSummary_NoOutliers)
 
-    return BaseDataSet, BaseDataSet_NoOutliers, PriceChange, PriceChange_NoOutliers, LLMSummary, LLMSummary_NoOutliers, Indicators
+    return MarketDataObject, NoOutliers_DatasetObject, PriceChangeObject, NoOutliers_PriceChangeObject, LLMSummary, LLMSummary_NoOutliers, Indicators

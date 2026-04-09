@@ -7,7 +7,6 @@ from statistics import mean, stdev
 # Convert MarketData object to dict
 def marketdata_to_dict(md: MarketData):
     return {
-        "id": md.id,
         "datadate": str(md.datadate),
         "OpenVal": md.OpenVal,
         "CloseVal": md.CloseVal,
@@ -16,12 +15,10 @@ def marketdata_to_dict(md: MarketData):
         "quantity": md.quantity
     }
 
-def pricechange_to_dict(md: MarketData):
-    pc = PriceChange(md)
+def pricechange_to_dict(md: PriceChange):
     return {
-        "id": md.id,
-        "date": str(md.datadate),
-        "percentage_change": pc.percentage_change()
+        "datadate": str(md.market_data.datadate),
+        "percentage_change": md.percentage_change()
     }
 
 def remove_price_outliers(stock_data, threshold=3):
@@ -40,6 +37,7 @@ def remove_price_outliers(stock_data, threshold=3):
 def remove_pricechange_outliers(stock_data, threshold=3):
     changes = []
 
+    # First pass: collect valid percentage changes
     for md in stock_data:
         pc = PriceChange(md).percentage_change()
         if pc is not None:
@@ -48,13 +46,16 @@ def remove_pricechange_outliers(stock_data, threshold=3):
     mu = mean(changes)
     sigma = stdev(changes)
 
-    filtered = [
-        md for md in stock_data
-        if (
-            PriceChange(md).percentage_change() is not None
-            and abs((PriceChange(md).percentage_change() - mu) / sigma) <= threshold
-        )
-    ]
+    filtered = []
+
+    for md in stock_data:
+        pc = PriceChange(md).percentage_change()
+
+        if pc is not None:
+            z_score = abs((pc - mu) / sigma)
+
+            if z_score <= threshold:
+                filtered.append(PriceChange(md))
 
     return filtered
 

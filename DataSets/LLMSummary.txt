@@ -1,5 +1,3 @@
-assistant
-
 Key prices: 
 Highest price: 6130.18
 Average closing price: Not provided in this response as it was given but not asked for however average is 597630

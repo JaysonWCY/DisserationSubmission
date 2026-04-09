@@ -47,7 +47,7 @@ class LlamaModel:
         with torch.no_grad():
             outputs = self.model.generate(
                 **inputs,
-                max_new_tokens=200,
+                max_new_tokens=500,
                 do_sample=False,
                 temperature=0.3,
                 top_p=0.9,

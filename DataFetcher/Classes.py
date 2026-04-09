@@ -1,9 +1,8 @@
 from datetime import datetime
 
 class MarketData:
-    def __init__(self, id=None, datadate=None, OpenVal=None, CloseVal=None, HighVal=None, LowVal=None, 
-                 quantity=None, created_at=None, last_updated_at=None):
-        self.id = id
+    def __init__(self, datadate=None, OpenVal=None, CloseVal=None, HighVal=None, LowVal=None, 
+                 quantity=None):
         self.datadate = datadate
         self.OpenVal = OpenVal
         self.CloseVal = CloseVal
@@ -19,7 +18,7 @@ class PriceChange:
         open_price = self.market_data.OpenVal
         close_price = self.market_data.CloseVal
 
-        if open_price is None or close_price is None or open_price == 0:
+        if open_price is None or close_price is None:
             return None
 
         return ((close_price - open_price) / open_price) * 100

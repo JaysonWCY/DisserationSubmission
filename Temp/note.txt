@@ -15,3 +15,11 @@ All data are saved in txt files for better clarity of the steps taken
 REMEBER TO NEVEDR SPEAK ABOUT PREDICTIONA RCHITECTURE
 
 Using the same LLMSummary reduces some of the randomness that an llm can perform but since sampling is off it will always be consistent anyway. Could be tested but not enough computational power aaand would result more in statistical testing
+
+There is a debate of that current indicators are enough or do past idnicators matter or not. Arguement for market not necessarily following past trends but also arguement for supports and ceilings
+
+Was planned for one week vs one month but ran out of tokens
+
+Chat templates with explicit generation prompts were used to align model outputs with expected assistant responses, reducing role-token leakage and improving structural consistency.
+
+Results came out not properly structured. Results were then manually converted while trying to preserve the values as close to the output as possible
