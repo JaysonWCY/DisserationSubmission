@@ -111,5 +111,22 @@ def RunProgram():
     with open("experiment_results.json", "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=4)
 
+    PredictionEndDate = add_business_days(EndDate, 10)
+    ActualStockData = GetStockData(StockCode, EndDate, PredictionEndDate)
+    ActualDataSetDict = [marketdata_to_dict(md) for md in ActualStockData]
+    with open("ActualStockData.json", "w", encoding="utf-8") as f:
+        json.dump(ActualDataSetDict, f, indent=4)
+    
+
+def add_business_days(start_date, n):
+    current = start_date
+    days_added = 0
+
+    while days_added < n:
+        current += timedelta(days=1)
+        if current.weekday() < 5:  # Mon–Fri
+            days_added += 1
+
+    return current
 
 RunProgram()
